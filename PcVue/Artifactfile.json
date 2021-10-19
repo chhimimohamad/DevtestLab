@@ -1,0 +1,28 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+  "title": "PcVue",
+  "publisher": "Arc informatique",
+  "description": "Install PcVue using the silent install via PowerShell",
+  "tags": [
+    "PcVue"
+  ],
+  "iconUri": "https://dev.azure.com/mchhimi/_git/CustomArtifacts?path=%2FArtifacts%2FPcVue%2FLogo-PcVue.png&version=GBmain",
+  "targetOsType": "Windows",
+  "parameters": {
+    "PcVueVersion": {
+      "type": "string",
+      "displayName": "PcVue version",
+      "description": "Choose the version of PcVue ",
+      "defaultValue": "15.0.2_PcVue_FullDVD.iso",
+      "allowedValues": [
+        "15.0.2_PcVue_FullDVD.iso",
+        "12.0.22_PcVue_FullDVD.iso",
+        "15.1.0_PcVue_FullDVD.iso"
+      ],
+      "allowEmpty": false
+    }
+  },
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./install-PcVue.ps1 -PcVueVersion ''', parameters('PcVueVersion'), '''\"')]"
+  }
+}
